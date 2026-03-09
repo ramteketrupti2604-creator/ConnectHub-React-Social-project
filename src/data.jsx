@@ -1,0 +1,17 @@
+export const allUsers = [
+  { id: 1, name: "Neha Wahane", img: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 2, name: "Aarav Sharma", img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 3, name: "Ananya Verma", img: "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 4, name: "Vihaan Gupta", img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 5, name: "Ishani Malhotra", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 6, name: "Kabir Kapoor", img: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 7, name: "Sana Khanna", img: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 8, name: "Rohan Mehta", img: "https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 9, name: "Diya Reddy", img: "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 10, name: "Aditya Bansal", img: "https://images.pexels.com/photos/842548/pexels-photo-842548.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 11, name: "Kiara Agarwal", img: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 12, name: "Ishaan Choudhury", img: "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 13, name: "Zoya Iyer", img: "https://images.pexels.com/photos/1181691/pexels-photo-1181691.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 14, name: "Reyansh Patil", img: "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+  { id: 15, name: "Meera Das", img: "https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg?auto=compress&cs=tinysrgb&w=1600" },
+];
