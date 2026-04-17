@@ -1,30 +1,35 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import MyProfilePic from "../assets/p1.jpeg";
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  
-  const [currentUser, setCurrentUser] = useState(null);
 
+  // ✅ Load user from localStorage (important for refresh)
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
+
+  // ✅ Login function (dummy user for now)
   const login = () => {
-    setCurrentUser({
+    const userData = {
       id: 1,
       name: "Trupti Ramteke",
       profilePic: MyProfilePic,
-    });
+    };
+
+    setCurrentUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
-  useEffect(() => {
-    if (currentUser) {
-      localStorage.setItem("user", JSON.stringify(currentUser));
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [currentUser]);
+  // ✅ Logout function
+  const logout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem("user");
+  };
 
   return (
-    <AuthContext.Provider value={{ currentUser, login }}>
+    <AuthContext.Provider value={{ currentUser, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

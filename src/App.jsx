@@ -24,14 +24,13 @@ function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
 
-  // ✅ Layout (UPDATED RESPONSIVE)
+  // ✅ Layout
   const Layout = () => {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
 
         <div className="mainContainer">
-          
           {/* Left Sidebar */}
           <LeftBar />
 
@@ -50,7 +49,15 @@ function App() {
   // ✅ Protected Route
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/login" />;
+      return <Navigate to="/login" replace />;
+    }
+    return children;
+  };
+
+  // ✅ Prevent logged-in user from seeing login/register again
+  const PublicRoute = ({ children }) => {
+    if (currentUser) {
+      return <Navigate to="/" replace />;
     }
     return children;
   };
@@ -77,11 +84,19 @@ function App() {
     },
     {
       path: "/login",
-      element: <Login />,
+      element: (
+        <PublicRoute>
+          <Login />
+        </PublicRoute>
+      ),
     },
     {
       path: "/register",
-      element: <Register />,
+      element: (
+        <PublicRoute>
+          <Register />
+        </PublicRoute>
+      ),
     },
   ]);
 
