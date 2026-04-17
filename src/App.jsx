@@ -1,37 +1,53 @@
 import React, { useContext } from "react";
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
+
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import Home from "./pages/home/home";
 import Profile from "./pages/profile/profile";
+
 import Navbar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
+
 import { AuthContext } from "./context/authContext";
 import { DarkModeContext } from "./context/darkModeContext";
+
 import "./style.scss";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
 
-  // 1. Layout ko yahan define karein (Isse 'Not Defined' error chala jayega)
+  // ✅ Layout (UPDATED RESPONSIVE)
   const Layout = () => {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
-        <div style={{ display: "flex" }}>
+
+        <div className="mainContainer">
+          
+          {/* Left Sidebar */}
           <LeftBar />
-          <div style={{ flex: 6 }}>
+
+          {/* Main Content */}
+          <div className="contentContainer">
             <Outlet />
           </div>
+
+          {/* Right Sidebar */}
           <RightBar />
         </div>
       </div>
     );
   };
 
-  // 2. Protected Route Logic
+  // ✅ Protected Route
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
@@ -39,7 +55,7 @@ function App() {
     return children;
   };
 
-  // 3. Router Configuration
+  // ✅ Router
   const router = createBrowserRouter([
     {
       path: "/",
@@ -69,11 +85,7 @@ function App() {
     },
   ]);
 
-  return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

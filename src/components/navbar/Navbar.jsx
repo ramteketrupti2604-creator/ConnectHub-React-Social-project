@@ -11,14 +11,14 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
-import { allUsers } from "../../data"; // Central data file se users mangwaye
+import { allUsers } from "../../data";
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { toggle, darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
 
-  // SEARCH LOGIC: Type karte hi 'allUsers' mein se naam filter honge
+  
   const filteredUsers = allUsers.filter(user => 
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -47,7 +47,7 @@ const Navbar = () => {
             onChange={(e) => setSearchTerm(e.target.value)} 
           />
           
-          {/* Search Dropdown: Jab kuch type karenge tabhi dikhega */}
+          
           {searchTerm && (
             <div className="search-dropdown" style={{
               position: "absolute", 
@@ -66,7 +66,7 @@ const Navbar = () => {
                   <Link 
                     to={`/profile/${user.id}`} 
                     key={user.id} 
-                    onClick={() => setSearchTerm("")} // Click karte hi dropdown band
+                    onClick={() => setSearchTerm("")} 
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <div style={{ 

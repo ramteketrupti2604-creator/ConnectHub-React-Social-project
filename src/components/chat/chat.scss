@@ -1,8 +1,8 @@
 .chatPopup {
-  // FIXED KO HATA KAR RELATIVE KIYA HAI
+  
   position: relative; 
   width: 100%;
-  height: 350px; // Is height se layout fix rahega
+  height: 350px; 
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -42,12 +42,12 @@
       padding: 8px 12px;
       border-radius: 15px;
       font-size: 13px;
-      background-color: #e4e6eb; // Received color
+      background-color: #e4e6eb; 
       color: black;
       align-self: flex-start;
 
       &.owner {
-        background-color: #0084ff; // Sent color
+        background-color: #0084ff; 
         color: white;
         align-self: flex-end;
       }

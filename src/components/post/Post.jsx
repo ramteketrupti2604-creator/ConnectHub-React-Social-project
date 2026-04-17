@@ -17,15 +17,15 @@ const Post = ({ post }) => {
     const shareData = {
       title: `${post.name}'s Post`,
       text: post.desc,
-      url: window.location.href, // Current page ka link share karega
+      url: window.location.href, 
     };
 
     try {
       if (navigator.share) {
-        // Mobile aur modern browsers ke liye native share menu
+       
         await navigator.share(shareData);
       } else {
-        // Fallback: Agar browser support nahi karta toh link copy karega
+        
         await navigator.clipboard.writeText(window.location.href);
         alert("Link copied to clipboard! Ab aap ise kahin bhi paste kar sakte hain.");
       }

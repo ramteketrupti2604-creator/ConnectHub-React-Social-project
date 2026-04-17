@@ -3,7 +3,7 @@ import "./rightBar.scss";
 import Chat from "../chat/Chat"; 
 
 const RightBar = () => {
-  // 1. Chat ke liye state jo selected user ka data rakhegi
+  
   const [selectedUser, setSelectedUser] = useState(null);
 
   const [suggestions, setSuggestions] = useState([
@@ -31,7 +31,7 @@ const RightBar = () => {
     setSuggestions(suggestions.filter(user => user.id !== id));
   };
 
-  // Online Friends ka data array
+  
   const onlineFriends = [
     { id: 101, name: "Arjun Joshi", img: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1600" },
     { id: 102, name: "Kiara Agarwal", img: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1600" },
@@ -52,14 +52,14 @@ const RightBar = () => {
     <div className="rightBar">
       <div className="container">
         
-        {/* 1. CHAT SECTION - Pass selectedUser as prop */}
+       
         <div className="item chatSection">
           <span>Direct Messages</span>
-          {/* Chat component ko selected user ka data bhej rahe hain */}
+         
           <Chat user={selectedUser} /> 
         </div>
 
-        {/* 2. SUGGESTIONS SECTION */}
+       
         <div className="item">
           <span>Suggestions For You</span>
           {suggestions.map((user) => (
@@ -104,7 +104,7 @@ const RightBar = () => {
             <div 
               className="user" 
               key={friend.id} 
-              onClick={() => setSelectedUser(friend)} // Click karne par state update hogi
+              onClick={() => setSelectedUser(friend)} 
               style={{ cursor: "pointer" }}
             >
               <div className="userInfo">

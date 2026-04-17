@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react"; // 'React' ka import zaroori hai
+import React, { createContext, useEffect, useState } from "react"; 
 
 export const DarkModeContext = createContext();
 

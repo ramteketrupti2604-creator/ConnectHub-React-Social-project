@@ -1,4 +1,4 @@
-@import "../../style.scss";  // Do baar ../ ka matlab folder se bahar nikalna
+@import "../../style.scss";  
 .leftBar {
   @include themify($themes) {
     flex: 2;

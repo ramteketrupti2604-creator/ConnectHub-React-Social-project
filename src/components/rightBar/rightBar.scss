@@ -30,20 +30,20 @@
         padding: 20px;
         margin-bottom: 20px;
         background-color: themed("bg");
-        border-radius: 10px; // Thoda rounded look ke liye
+        border-radius: 10px; 
 
         span {
           color: gray;
           font-size: 14px;
         }
 
-        // --- Naya Chat Section Logic ---
+        
         &.chatSection {
           display: flex;
           flex-direction: column;
           gap: 15px;
 
-          // Chat box ke andar ki image aur text alignment
+          
           .userInfo {
             display: flex;
             align-items: center;
@@ -67,7 +67,7 @@
               }
               p {
                 font-size: 12px;
-                color: limegreen; // "Active now" ke liye
+                color: limegreen;
                 margin: 0;
               }
             }
@@ -85,7 +85,7 @@
             align-items: center;
             gap: 20px;
             position: relative;
-            cursor: pointer; // Online friends clickable dikhane ke liye
+            cursor: pointer; 
 
             img {
               width: 40px;
@@ -102,7 +102,7 @@
               position: absolute;
               top: 0;
               left: 30px;
-              border: 2px solid themed("bg"); // Sahi overlap ke liye
+              border: 2px solid themed("bg"); 
             }
 
             p {
@@ -129,7 +129,7 @@
 
             button {
               border: none;
-              padding: 5px 10px; // Thoda padding badhaya
+              padding: 5px 10px; 
               color: white;
               cursor: pointer;
               border-radius: 3px;

@@ -6,16 +6,16 @@ const Chat = ({ user, setOpenChat }) => {
   // 1. State for Input
   const [inputText, setInputText] = useState("");
   
-  // 2. State for Messages
+  
   const [allMessages, setAllMessages] = useState([
     { id: 1, text: "Hi, how are you?", sender: "friend" },
     { id: 2, text: "I'm good! Working on my project.", sender: "owner" }
   ]);
 
-  // Jab user change ho, toh chat history reset ya update karne ke liye logic
+  
   useEffect(() => {
     if (user) {
-      // Yahan aap purani chat clear kar sakte hain ya API se fetch kar sakte hain
+      
       setAllMessages([
         { id: 1, text: `Hi, this is ${user.name}!`, sender: "friend" },
         { id: 2, text: "Hey! How can I help you?", sender: "owner" }
@@ -23,7 +23,7 @@ const Chat = ({ user, setOpenChat }) => {
     }
   }, [user]);
 
-  // 3. Send Function
+  
   const handleSend = () => {
     if (inputText.trim() !== "") {
       const newMessage = {
@@ -36,7 +36,7 @@ const Chat = ({ user, setOpenChat }) => {
     }
   };
 
-  // Agar koi user select nahi hai toh message dikhayein
+  
   if (!user) {
     return (
       <div className="noChat">
@@ -58,7 +58,7 @@ const Chat = ({ user, setOpenChat }) => {
             <p>Active now</p>
           </div>
         </div>
-        {/* setOpenChat ka use karke chat band karein */}
+        
         <CloseIcon className="close" onClick={() => setOpenChat(null)} />
       </div>
       

@@ -2,59 +2,79 @@ import React, { useContext } from "react";
 import "./stories.scss";
 import { AuthContext } from "../../context/authContext";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 const Stories = () => {
   const { currentUser } = useContext(AuthContext);
 
-  // EXCELLENT & VARIED TOPICS STORIES DATA
   const stories = [
     {
       id: 1,
-      name: "Vihaan Gupta",
-      // Topic: Birthday Celebration
-      img: "https://images.pexels.com/photos/1543767/pexels-photo-1543767.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      name: "Vihaan",
+      img: "https://images.pexels.com/photos/1543767/pexels-photo-1543767.jpeg",
       type: "Birthday ✨",
     },
     {
       id: 2,
-      name: "Ishani Malhotra",
-      // Topic: Travel/Nature
-      img: "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      name: "Ishani",
+      img: "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg",
       type: "Vacation 🏖️",
     },
     {
       id: 3,
-      name: "Kabir Kapoor",
-      // Topic: Food/Coffee
-      img: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      type: "Coffee Mood ☕",
+      name: "Kabir",
+      img: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg",
+      type: "Coffee ☕",
     },
     {
       id: 4,
-      name: "Myra Singh ",
-      // Topic: Coding/Work
-      img: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      type: "Coding Life 💻",
+      name: "Myra",
+      img: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
+      type: "Coding 💻",
     },
   ];
 
   return (
     <div className="stories">
-      {/* Aapki apni story section */}
-      <div className="story">
-        <img src={currentUser.profilePic} alt="" />
-        <span>Your Story</span>
-        <button>+</button>
-      </div>
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={3}
+        grabCursor={true}
+        style={{ width: "100%" }}
+        breakpoints={{
+          320: { slidesPerView: 2 },
+          480: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+        }}
+      >
+        {/* Your Story */}
+        <SwiperSlide>
+          <div className="story">
+            <img
+              src={
+                currentUser?.profilePic ||
+                "https://via.placeholder.com/150"
+              }
+              alt=""
+            />
+            <span>Your Story</span>
+            <button>+</button>
+          </div>
+        </SwiperSlide>
 
-      {/* Baki friends ki stories with different topics */}
-      {stories.map((story) => (
-        <div className="story" key={story.id}>
-          <img src={story.img} alt="" />
-          <span>{story.name}</span>
-          {/* Chota sa badge ya text topic dikhane ke liye */}
-          <div className="storyType">{story.type}</div>
-        </div>
-      ))}
+        {/* Other Stories */}
+        {stories.map((story) => (
+          <SwiperSlide key={story.id}>
+            <div className="story">
+              <img src={story.img} alt="" />
+              <span>{story.name}</span>
+              <div className="storyType">{story.type}</div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

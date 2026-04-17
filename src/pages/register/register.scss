@@ -1,13 +1,13 @@
 .register {
   height: 100vh;
-  background-color: #f6f7fb; // Light background
+  background-color: #f6f7fb; 
   display: flex;
   align-items: center;
   justify-content: center;
 
   .card {
     display: flex;
-    width: 65%; // Desktop par size sahi rakhta hai
+    width: 65%; 
     min-height: 600px;
     background-color: white;
     border-radius: 10px;
@@ -27,7 +27,7 @@
       color: white;
 
       h1 {
-        font-size: 60px; // Zyada bada mat rakhein
+        font-size: 60px;
       }
 
       button {

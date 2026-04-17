@@ -1,6 +1,6 @@
 import React from "react";
 import "./register.scss";
-import { Link } from "react-router-dom"; // Ye line add karein
+import { Link } from "react-router-dom"; 
 
 const Register = () => {
   return (
@@ -16,7 +16,7 @@ const Register = () => {
            and build connections that last a lifetime.
           </p>
           <span>Do you have an account?</span>
-          {/* Yahan Link add karein taaki Register se Login par ja sakein */}
+         
           <Link to="/login">
             <button>Login</button>
           </Link>
@@ -28,7 +28,7 @@ const Register = () => {
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
             <input type="text" placeholder="Name" />
-            {/* Abhi ke liye yahan bhi Link laga sakte hain testing ke liye */}
+           
             <button>Register</button>
           </form>
         </div>

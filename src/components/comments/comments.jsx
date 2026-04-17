@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/authContext";
 const Comments = () => {
   const { currentUser } = useContext(AuthContext);
 
-  // 1. Comments list ki state (Sample English Data)
+  
   const [commentList, setCommentList] = useState([
     {
       id: 1,
@@ -24,10 +24,10 @@ const Comments = () => {
     },
   ]);
 
-  // 2. Naya comment jo hum type kar rahe hain, uski state
+ 
   const [writeComment, setWriteComment] = useState("");
 
-  // 3. Send button click karne par logic
+  
   const handleSend = () => {
     if (writeComment.trim() === "") {
       alert("Please write something before sending!");
@@ -42,16 +42,16 @@ const Comments = () => {
       desc: writeComment,
     };
 
-    // Naya comment list ke sabse upar add hoga
+   
     setCommentList([newEntry, ...commentList]);
     
-    // Send hone ke baad input box khali ho jayega
+    
     setWriteComment("");
   };
 
   return (
     <div className="comments">
-      {/* Naya comment likhne wala section */}
+      
       <div className="write">
         <img src={currentUser.profilePic} alt="" />
         <input
@@ -63,7 +63,7 @@ const Comments = () => {
         <button onClick={handleSend}>Send</button>
       </div>
 
-      {/* Saare comments dikhane wala section */}
+      
       {commentList.map((comment) => (
         <div className="comment" key={comment.id}>
           <img src={comment.profilePicture} alt={comment.name} />
