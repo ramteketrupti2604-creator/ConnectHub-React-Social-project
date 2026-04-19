@@ -20,7 +20,9 @@ const Login = () => {
         {/* LEFT */}
         <div className="left">
           <h1>Hello World.</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>Welcome back!
+Login to your account to connect with friends, 
+explore posts, and stay updated with the latest activities.</p>
           <span>Don't you have an account?</span>
           <Link to="/register">
             <button>Register</button>

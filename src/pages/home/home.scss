@@ -1,16 +1,25 @@
 @import "../../style.scss";
 
-.home{
+.home {
   @include themify($themes) {
-    padding: 20px 70px;
+    padding: 0; // 🔥 REMOVE SIDE GAP
+    margin: 0;  // 🔥 EXTRA SAFETY
+    width: 100%;
+    min-height: 100%;
+
     background-color: themed("bgSoft");
 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; // 🔥 content ke beech thoda spacing (stories, posts)
+
     @include mobile {
-      padding: 10px;
+      padding: 0;
+      gap: 10px;
     }
 
-    @include tablet{
-      padding: 20px;
+    @include tablet {
+      padding: 0;
     }
   }
- }
+}

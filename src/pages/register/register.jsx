@@ -9,9 +9,8 @@ const Register = () => {
         <div className="left">
           <h1>Lama Social.</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-            alias totam numquam ipsa exercitationem dignissimos, error nam,
-            consequatur.
+           Create a new account and join our community to share your ideas, 
+           connect with others, and explore amazing content.
           </p>
           <span>Do you have an account?</span>
           <Link to="/login">

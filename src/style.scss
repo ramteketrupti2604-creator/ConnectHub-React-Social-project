@@ -19,7 +19,7 @@ $themes: (
 
 $theme-map: null;
 
-// THEME MIXIN
+// 🔥 THEME MIXIN
 @mixin themify($themes) {
   @each $theme, $map in $themes {
     .theme-#{$theme} & {
@@ -34,26 +34,28 @@ $theme-map: null;
   }
 }
 
+// 🔥 THEME FUNCTION
 @function themed($key) {
   @return map-get($theme-map, $key);
 }
 
-// RESPONSIVE
+// 📱 RESPONSIVE MIXINS
 @mixin mobile { @media (max-width: 480px) { @content; } }
 @mixin tablet { @media (max-width: 960px) { @content; } }
 
-// GLOBAL
+// 🔥 GLOBAL RESET
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
   overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-// MAIN CONTAINER
+// 🔥 MAIN LAYOUT
 .mainContainer {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px); // navbar adjust
 
   @include themify($themes) {
     background-color: themed("bgSoft");
@@ -64,19 +66,20 @@ body {
   }
 }
 
-// LEFT SIDEBAR
+// 🔥 LEFT SIDEBAR
 .leftBar {
-  width: 250px;       // 🔥 FIXED WIDTH
-  flex-shrink: 0;     // 🔥 IMPORTANT
+  width: 250px;
+  flex-shrink: 0;
+  margin-right: 15px; // 🔥 ONLY LEFT-MIDDLE GAP
 
   @include tablet {
     display: none;
   }
 }
 
-// RIGHT SIDEBAR
+// 🔥 RIGHT SIDEBAR
 .rightBar {
-  width: 300px;       // 🔥 FIXED WIDTH
+  width: 300px;
   flex-shrink: 0;
 
   @include tablet {
@@ -84,18 +87,14 @@ body {
   }
 }
 
-// MAIN CONTENT
+// 🔥 CENTER CONTENT
 .contentContainer {
-  flex: 1;            // 🔥 remaining space lega
+  flex: 1;
   min-width: 0;
-  padding: 10px;
+  padding: 0; // ❌ no gap
 
   @include themify($themes) {
     background-color: themed("bg");
     color: themed("textColor");
-  }
-
-  @include mobile {
-    padding: 5px;
   }
 }

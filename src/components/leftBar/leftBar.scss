@@ -1,10 +1,10 @@
 @import "../../style.scss";  
 .leftBar {
   @include themify($themes) {
-    flex: 2;
+    flex: 3;
     position: sticky;
-    top: 70px;
-    height: calc(100vh - 70px);
+    top: 50px;
+    height: calc(100vh - 50px);
     overflow: scroll;
     background-color: themed("bg");
     color: themed("textColor");
@@ -18,12 +18,12 @@
     }
 
     .container {
-      padding: 20px;
+      padding: 10px;
 
       hr {
-        margin: 20px 0px;
+        margin: 30px 0px;
         border: none;
-        height: 0.5px;
+        height: 5px;
         background-color: themed("border");
       }
 
