@@ -1,44 +1,50 @@
 .login {
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
   background-color: rgb(193, 190, 255);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 
   .card {
-    width: 50%;
+    width: 800px;
+    max-width: 100%;
     display: flex;
     background-color: white;
     border-radius: 10px;
-    min-height: 600px;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
 
     .left {
       flex: 1;
-      background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
-        url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600")
+      background: linear-gradient(
+          rgba(39, 11, 96, 0.5),
+          rgba(39, 11, 96, 0.5)
+        ),
+        url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg")
           center;
       background-size: cover;
-      padding: 50px;
+      padding: 40px;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 20px;
       color: white;
 
-      h1 {
-        font-size: 100px;
-        line-height: 100px;
-      }
-      
-      p {
+      @media (max-width: 768px) {
+        display: none; // mobile me hide
       }
 
-      span {
-        font-size: 14px;
+      h1 {
+        font-size: 60px;
+        line-height: 60px;
       }
-      
+
       button {
-        width: 50%;
+        width: 60%;
         padding: 10px;
         border: none;
         background-color: white;
@@ -50,35 +56,37 @@
 
     .right {
       flex: 1;
-      padding: 50px;
+      padding: 40px;
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 30px;
       justify-content: center;
 
       h1 {
-      color: #555;
+        color: #555;
+        text-align: center;
       }
-      
+
       form {
         display: flex;
         flex-direction: column;
-        gap: 30px;
-        
+        gap: 20px;
+
         input {
-        border: none;
-        border-bottom: 1px solid lightgray;
-        padding: 20px 10px;
+          border: none;
+          border-bottom: 1px solid lightgray;
+          padding: 12px;
         }
-        
+
         button {
-          width: 50%;
-          padding: 10px;
+          width: 100%;
+          padding: 12px;
           border: none;
           background-color: #938eef;
           color: white;
           font-weight: bold;
           cursor: pointer;
+          border-radius: 5px;
         }
       }
     }

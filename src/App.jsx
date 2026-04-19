@@ -24,45 +24,58 @@ function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
 
-  // ✅ Layout
-  const Layout = () => {
-    return (
-      <div className={`theme-${darkMode ? "dark" : "light"}`}>
-        <Navbar />
+  // 🔥 FIXED LAYOUT
+  const Layout = () => (
+    <div className={`theme-${darkMode ? "dark" : "light"}`}>
+      <Navbar />
 
-        <div className="mainContainer">
-          {/* Left Sidebar */}
+      <div
+        className="mainContainer"
+        style={{
+          display: "flex",
+          width: "100%",
+          maxWidth: "100%",
+          overflowX: "hidden",
+        }}
+      >
+        {/* LEFT SIDEBAR */}
+        <div style={{ flexShrink: 0 }}>
           <LeftBar />
+        </div>
 
-          {/* Main Content */}
-          <div className="contentContainer">
-            <Outlet />
-          </div>
+        {/* MAIN CONTENT */}
+        <div
+          className="contentContainer"
+          style={{
+            flex: 6,
+            minWidth: 0,
+            width: "100%",
+            overflowX: "hidden",
+          }}
+        >
+          <Outlet />
+        </div>
 
-          {/* Right Sidebar */}
+        {/* RIGHT SIDEBAR */}
+        <div style={{ flexShrink: 0 }}>
           <RightBar />
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
-  // ✅ Protected Route
+  // 🔐 PROTECTED ROUTE
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" replace />;
-    }
+    if (!currentUser) return <Navigate to="/login" />;
     return children;
   };
 
-  // ✅ Prevent logged-in user from seeing login/register again
+  // 🔓 PUBLIC ROUTE
   const PublicRoute = ({ children }) => {
-    if (currentUser) {
-      return <Navigate to="/" replace />;
-    }
+    if (currentUser) return <Navigate to="/" />;
     return children;
   };
 
-  // ✅ Router
   const router = createBrowserRouter([
     {
       path: "/",
@@ -72,14 +85,8 @@ function App() {
         </ProtectedRoute>
       ),
       children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/profile/:id",
-          element: <Profile />,
-        },
+        { path: "/", element: <Home /> },
+        { path: "/profile/:id", element: <Profile /> },
       ],
     },
     {

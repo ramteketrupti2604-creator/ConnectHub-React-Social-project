@@ -1,46 +1,31 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./register.scss";
 
 const Register = () => {
-  const navigate = useNavigate();
-
-  const handleRegister = (e) => {
-    e.preventDefault();
-
-    // ✅ Dummy register (no backend)
-    alert("Registered successfully!");
-
-    // 👉 Redirect to login
-    navigate("/login");
-  };
-
   return (
     <div className="register">
       <div className="card">
-        
-        {/* LEFT */}
         <div className="left">
-          <h1>ConnectHub.</h1>
+          <h1>Lama Social.</h1>
           <p>
-            Join the community and start sharing your moments with the world.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
+            alias totam numquam ipsa exercitationem dignissimos, error nam,
+            consequatur.
           </p>
-          <span>Already have an account?</span>
+          <span>Do you have an account?</span>
           <Link to="/login">
-            <button>Login</button>
+          <button>Login</button>
           </Link>
         </div>
-
-        {/* RIGHT */}
         <div className="right">
           <h1>Register</h1>
-
-          <form onSubmit={handleRegister}>
-            <input type="text" placeholder="Username" required />
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
-
-            <button type="submit">Register</button>
+          <form>
+            <input type="text" placeholder="Username" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <input type="text" placeholder="Name" />
+            <button>Register</button>
           </form>
         </div>
       </div>

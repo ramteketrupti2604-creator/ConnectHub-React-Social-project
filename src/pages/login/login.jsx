@@ -8,42 +8,35 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
-    e.preventDefault(); // ✅ prevent page reload
-    login();            // ✅ call login from context
-    navigate("/");      // ✅ redirect to home
+    e.preventDefault();
+    login();
+    navigate("/");
   };
 
   return (
     <div className="login">
       <div className="card">
         
-        {/* LEFT SIDE */}
+        {/* LEFT */}
         <div className="left">
           <h1>Hello World.</h1>
-          <p>
-            Welcome to the future of social networking. Connect with friends,
-            share your unique moments, and explore endless possibilities.
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           <span>Don't you have an account?</span>
           <Link to="/register">
             <button>Register</button>
           </Link>
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT */}
         <div className="right">
           <h1>Login</h1>
-
-          {/* ✅ Form submit handling */}
           <form onSubmit={handleLogin}>
-            <input type="text" placeholder="Username" required />
-            <input type="password" placeholder="Password" required />
-
-            {/* ✅ button type submit */}
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
             <button type="submit">Login</button>
           </form>
-
         </div>
+
       </div>
     </div>
   );

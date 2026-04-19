@@ -17,59 +17,43 @@ $themes: (
   ),
 );
 
-// 🔥 THEME MIXIN
+$theme-map: null;
+
+// THEME MIXIN
 @mixin themify($themes) {
   @each $theme, $map in $themes {
     .theme-#{$theme} & {
       $theme-map: () !global;
-
       @each $key, $submap in $map {
         $value: map-get(map-get($themes, $theme), $key);
-        $theme-map: map-merge(
-          $theme-map,
-          (
-            $key: $value,
-          )
-        ) !global;
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
       }
-
       @content;
       $theme-map: null !global;
     }
   }
 }
 
-// 🔥 THEME FUNCTION
 @function themed($key) {
   @return map-get($theme-map, $key);
 }
 
-// 📱 MOBILE
-@mixin mobile {
-  @media (max-width: 480px) {
-    @content;
-  }
-}
+// RESPONSIVE
+@mixin mobile { @media (max-width: 480px) { @content; } }
+@mixin tablet { @media (max-width: 960px) { @content; } }
 
-// 💻 TABLET
-@mixin tablet {
-  @media (max-width: 960px) {
-    @content;
-  }
-}
-
-// 🔥 GLOBAL RESET
+// GLOBAL
 body {
   margin: 0;
-  overflow-x: hidden; // 🚨 prevents zoom-out bug
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
 }
 
-// 🔥 MAIN LAYOUT
+// MAIN CONTAINER
 .mainContainer {
   display: flex;
   width: 100%;
-  max-width: 100vw; // 🚨 VERY IMPORTANT
-  overflow-x: hidden; // 🚨 FIX for Swiper + flex bug
+  min-height: 100vh;
 
   @include themify($themes) {
     background-color: themed("bgSoft");
@@ -80,11 +64,30 @@ body {
   }
 }
 
-// 🔥 CONTENT AREA (MOST IMPORTANT FIX)
+// LEFT SIDEBAR
+.leftBar {
+  width: 250px;       // 🔥 FIXED WIDTH
+  flex-shrink: 0;     // 🔥 IMPORTANT
+
+  @include tablet {
+    display: none;
+  }
+}
+
+// RIGHT SIDEBAR
+.rightBar {
+  width: 300px;       // 🔥 FIXED WIDTH
+  flex-shrink: 0;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+// MAIN CONTENT
 .contentContainer {
-  flex: 6;
-  min-width: 0; // 🚨 CRITICAL (fix flex overflow bug)
-  width: 100%;
+  flex: 1;            // 🔥 remaining space lega
+  min-width: 0;
   padding: 10px;
 
   @include themify($themes) {
@@ -93,34 +96,6 @@ body {
   }
 
   @include mobile {
-    flex: 1;
-    width: 100%;
     padding: 5px;
-  }
-}
-
-// 🔥 LEFT BAR
-.leftBar {
-  flex: 2;
-
-  @include tablet {
-    display: none;
-  }
-
-  @include mobile {
-    display: none !important;
-  }
-}
-
-// 🔥 RIGHT BAR
-.rightBar {
-  flex: 3;
-
-  @include tablet {
-    display: none;
-  }
-
-  @include mobile {
-    display: none !important;
   }
 }

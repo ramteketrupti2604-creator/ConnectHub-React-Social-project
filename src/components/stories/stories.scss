@@ -1,7 +1,17 @@
 .stories {
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
+
+  // 🔥 FIX
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  display: flex;
+  gap: 10px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .swiper {
     width: 100%;
@@ -10,9 +20,11 @@
   .story {
     position: relative;
     height: 180px;
+    min-width: 120px; // 🔥 IMPORTANT (scroll ke liye)
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
+    flex-shrink: 0;
 
     img {
       width: 100%;
@@ -57,6 +69,7 @@
 /* MOBILE */
 @media (max-width: 768px) {
   .stories .story {
-    height: 150px;
+    height: 140px;
+    min-width: 100px;
   }
 }

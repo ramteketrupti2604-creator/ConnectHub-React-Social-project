@@ -5,12 +5,10 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
 
-  // ✅ Load user from localStorage (important for refresh)
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
+  // 🔴 No auto login (always start null)
+  const [currentUser, setCurrentUser] = useState(null);
 
-  // ✅ Login function (dummy user for now)
+  // 🔐 LOGIN FUNCTION
   const login = () => {
     const userData = {
       id: 1,
@@ -19,13 +17,11 @@ export const AuthContextProvider = ({ children }) => {
     };
 
     setCurrentUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData));
   };
 
-  // ✅ Logout function
+  // 🔓 LOGOUT (optional, not required)
   const logout = () => {
     setCurrentUser(null);
-    localStorage.removeItem("user");
   };
 
   return (
